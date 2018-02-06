@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kotlin.example.dao.mapper.ProductMapper">
+
+    <resultMap id="ProductDetailResultMap" type="com.kotlin.example.entity.Product">
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+    </resultMap>
+
+    <!-- 产品详情 -->
+    <select id="detail" resultMap="ProductDetailResultMap">
+      select code, name, create_time, update_time from t_product where code = #{productCode}
+    </select>
+
+    <!-- 删除产品 -->
+    <delete id="delete">
+        delete from t_product where code = #{productCode}
+    </delete>
+</mapper>
