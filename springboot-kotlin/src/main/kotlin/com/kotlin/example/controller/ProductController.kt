@@ -25,6 +25,9 @@ class ProductController {
     @Autowired
     private lateinit var productService: ProductService
 
+    /**
+     * 列表 
+     */
     @PostMapping("/list.html")
     fun list(@RequestParam(value = "page") pageNo: Int): String {
         println("page ${pageNo}")
@@ -32,6 +35,9 @@ class ProductController {
         return productService.list(pageNo, PRODUCT_PAGE_SIZE).toString()
     }
 
+    /**
+     * 详情
+     */
     @PostMapping("/detail.html")
     fun detail(@RequestParam(value = "productCode") productCode: String): String {
 
