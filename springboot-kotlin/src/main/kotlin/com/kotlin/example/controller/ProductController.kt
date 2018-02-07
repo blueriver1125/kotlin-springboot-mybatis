@@ -1,11 +1,11 @@
 package com.kotlin.example.controller
 
+import com.kotlin.example.entity.Product
 import com.kotlin.example.service.ProductService
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.web.bind.annotation.PostMapping
-import org.springframework.web.bind.annotation.RequestMapping
-import org.springframework.web.bind.annotation.RequestParam
-import org.springframework.web.bind.annotation.RestController
+import org.springframework.stereotype.Controller
+import org.springframework.ui.Model
+import org.springframework.web.bind.annotation.*
 
 /**
  * @author blueriver
@@ -14,7 +14,8 @@ import org.springframework.web.bind.annotation.RestController
  * @since 1.0
  */
 
-@RestController
+//@RestController
+@Controller
 @RequestMapping("/product")
 class ProductController {
 
@@ -26,21 +27,22 @@ class ProductController {
     private lateinit var productService: ProductService
 
     /**
-     * 列表 
+     * 返回json
      */
     @PostMapping("/list.html")
-    fun list(@RequestParam(value = "page") pageNo: Int): String {
+    @ResponseBody
+    fun list(@RequestParam(value = "page") pageNo: Int): List<Product>? {
         println("page ${pageNo}")
 
-        return productService.list(pageNo, PRODUCT_PAGE_SIZE).toString()
+        return productService.list(pageNo, PRODUCT_PAGE_SIZE)
     }
 
     /**
-     * 详情
+     * 返回html页面
      */
-    @PostMapping("/detail.html")
-    fun detail(@RequestParam(value = "productCode") productCode: String): String {
-
-        return productService.detail(productCode).toString()
+    @GetMapping("/detail.html")
+    fun detail(@RequestParam(value = "productCode") productCode: String, model: Model): String {
+        model.addAttribute("product", productService.detail(productCode))
+        return "/product/detail"
     }
 }

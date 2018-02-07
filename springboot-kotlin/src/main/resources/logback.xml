@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- For assistance related to logback-translator or configuration  -->
+<!-- files in general, please contact the logback user mailing list -->
+<!-- at http://www.qos.ch/mailman/listinfo/logback-user             -->
+<!--                                                                -->
+<!-- For professional support please see                            -->
+<!--    http://www.qos.ch/shop/products/professionalSupport         -->
+<!--                                                                -->
+<!--
+  configuration 包含的属性
+  scan:当此属性设置为true时，配置文件如果发生改变，将会被重新加载，默认值为true。
+  scanPeriod:设置监测配置文件是否有修改的时间间隔，如果没有给出时间单位，默认单位是毫秒。当scan为true时，此属性生效。默认的时间间隔为1分钟。
+  debug:当此属性设置为true时，将打印出logback内部日志信息，实时查看logback运行状态。默认值为false。
+ -->
+<configuration>
+
+    <!--appender负责将格式化后的输出发送到目的地 -->
+    <!-- 控制台输出日志 -->
+    <appender name="stdout" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <!-- layout 负责根据用户意愿对记录请求进行格式化
+             1.第一个字段是自程序启动以来的逝去时间，单位是毫秒。
+             2.第二个字段发出记录请求的线程。
+             3.第三个字段是记录请求的级别。
+             4.第四个字段是与记录请求关联的logger的名称
+             “-”之后是请求的消息文字。
+             -->
+            <pattern>%d{HH:mm:ss.SSS} [%thread] %-5level %logger{20}[%L] - %msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <!-- root与logger类似，它表示根logger，只有大于等于level级别的日志才交由appender处理，level默认为DEBUG -->
+    <root level="INFO">
+        <appender-ref ref="stdout" />
+    </root>
+
+    <!-- 开发环境 打印sql -->
+    <logger name="dao" level="DEBUG"/>
+
+</configuration>

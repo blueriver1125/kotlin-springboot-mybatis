@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <title>产品详情</title>
+</head>
+<body>
+
+<div align="center">
+    <table style="border:solid red 1px" >
+        <tr>
+            <td>产品编码: </td>
+            <td th:text="${product.code}"> 编码</td>
+        </tr>
+        <tr>
+            <td>产品名称: </td>
+            <td th:text="${product.name}">名称</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
