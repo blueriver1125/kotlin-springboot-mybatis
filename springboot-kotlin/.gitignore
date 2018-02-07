@@ -27,8 +27,6 @@ hs_err_pid*
 .idea/vcs.xml
 .idea/workspace.xml
 
-
-#mybatis generate code
 *.zip
 
 #rebel 热部署插件

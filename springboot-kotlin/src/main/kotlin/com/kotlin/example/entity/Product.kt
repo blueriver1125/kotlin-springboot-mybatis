@@ -12,3 +12,5 @@ import java.sql.Timestamp
 data class Product constructor(val code: String, val name: String, val createTime: Timestamp, val updateTime: Timestamp) {
 
 }
+
+// 注意mybatis查询数据，然后封装实体的时候，构造方法这里有点儿坑，查询的字段必须与构造方法一直。

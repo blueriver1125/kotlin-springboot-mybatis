@@ -14,11 +14,20 @@ import org.apache.ibatis.annotations.Select
 @Mapper
 interface ProductMapper {
 
+    /**
+     * 列表
+     */
     @Select("select code, name, create_time, update_time from t_product limit #{start}, #{size} ")
     fun list(@Param("start") start: Int, @Param("size") pageSize: Int): List<Product>?
 
+    /**
+     * 详情
+     */
     fun detail(@Param("productCode") productCode: String): Product?
 
+    /**
+     * 删除
+     */
     fun delete(@Param("productCode") productCode: String)
 
 }

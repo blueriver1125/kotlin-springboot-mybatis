@@ -10,6 +10,7 @@ import com.kotlin.example.entity.Product
  */
 
 interface ProductService {
+
     /**
      * 产品列表
      */

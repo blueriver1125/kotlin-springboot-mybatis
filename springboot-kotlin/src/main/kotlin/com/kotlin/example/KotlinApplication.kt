@@ -7,6 +7,9 @@ import org.springframework.boot.autoconfigure.data.mongo.MongoDataAutoConfigurat
 import org.springframework.boot.autoconfigure.data.mongo.MongoRepositoriesAutoConfiguration
 import org.springframework.boot.autoconfigure.mongo.MongoAutoConfiguration
 
+/**
+ * 启动类
+ */
 @MapperScan("com.kotlin.example.dao.mapper")
 @SpringBootApplication(
         scanBasePackages = arrayOf("com.kotlin.example"),
