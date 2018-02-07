@@ -15,4 +15,4 @@
   
   **Get请求Html:** 
     
-    ![GET请求html](https://gitee.com/uploads/images/2018/0207/111456_e3dac88e_1069272.png "3.png")
+   ![GET请求html](https://gitee.com/uploads/images/2018/0207/111456_e3dac88e_1069272.png "3.png")
